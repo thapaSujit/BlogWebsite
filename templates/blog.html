@@ -26,10 +26,6 @@
         </div>
         {% endif %}
     
-        {% comment %} <span class="page-current">
-            Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}
-        </span> {% endcomment %}
-    
         {% if blogs.has_next %}
         <div class='float-right'>
           <a class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3' href="?page={{ blogs.next_page_number }}">Next <i class="bi bi-arrow-right font-extrabold"></i></a>
