@@ -108,3 +108,12 @@ def blogpost (request, slug):
 #     blog = Blog.objects.filter(slug=slug).first()
 #     context = {'blog': blog}
 #     return render(request, 'blogpost.html', context)
+import math
+
+def calculate_reading_time(content):
+    words = content.split()
+    word_count = len(words)
+    average_wpm = 200  # Adjust this value according to your assumptions or research
+
+    reading_time = math.ceil(word_count / average_wpm)
+    return reading_time
