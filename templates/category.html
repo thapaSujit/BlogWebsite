@@ -51,10 +51,6 @@
               <a class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3' href="?page={{ category_posts.previous_page_number }}"><i class="bi bi-arrow-left font-extrabold"></i> Previous</a>
           </div>
           {% endif %}
-    
-            {% comment %} <span class="page-current">
-                Page {{ category_posts.number }} of {{ category_posts.paginator.num_pages }}
-            </span> {% endcomment %}
       
           {% if category_posts.has_next %}
           <div class='float-right'>
