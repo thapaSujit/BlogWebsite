@@ -11,17 +11,16 @@ class Blog(models.Model):
     category = models.CharField(max_length=255, default="uncategorized")
     slug = models.CharField(max_length=100)
     time = models.DateField(auto_now_add=True)
-    
-    def save(self, *args, **kwargs):
-        # Calculate the approximate time required to read the content
-        word_count = len(self.content.split())
-        average_reading_speed = 200  # Assuming an average reading speed of 200 words per minute
-        minutes_required = word_count / average_reading_speed
+    #approx_time = models.PositiveIntegerField(blank=True, null=True)
 
-        # Round up to the nearest minute
-        self.approx_time = str(round(minutes_required))
+    def get_read_time(self):
+        from html import unescape
+        from django.utils.html import strip_tags
+        
+        string = self.title + unescape(strip_tags(self.content))
+        total_words = len((string).split())
 
-        super().save(*args, **kwargs)
+        return round(total_words / 200)
 
     def __str__(self):
         return self.title
